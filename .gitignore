@@ -9,3 +9,4 @@ instance/
 .webassets-cache
 .idea
 .vscode
+migrations
