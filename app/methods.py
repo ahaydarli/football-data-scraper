@@ -64,7 +64,7 @@ class Crawler:
 
     def get_countries(url):
         countries = {}
-        source_code = requests.get(url, headers=header_rotate)
+        source_code = requests.get(url, headers=header_rotate())
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text, 'html.parser')
         for item in soup.find_all('div', {'class': 'dmn-left-g'}):
@@ -75,7 +75,7 @@ class Crawler:
     def get_leagues(url):
         leagues = {}
         class_list = ['smn-left-g', 'smn-left-w', 'smn-left-gn']
-        source_code = requests.get(url, headers=header_rotate)
+        source_code = requests.get(url, headers=header_rotate())
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text, 'html.parser')
         for item in soup.find_all('div', class_=class_list):
@@ -85,7 +85,7 @@ class Crawler:
 
     def get_years(url):
         years = {}
-        source_code = requests.get(url, headers=header_rotate)
+        source_code = requests.get(url, headers=header_rotate())
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text, 'html.parser')
         for item in soup.find_all('a', {'class': 'year'}):
@@ -94,7 +94,7 @@ class Crawler:
 
     def get_club(url):
         clubs = {}
-        source_code = requests.get(url, headers=header_rotate)
+        source_code = requests.get(url, headers=header_rotate())
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text, 'html.parser')
         for item in soup.find_all('table', {'class': 'championship'}):
@@ -107,7 +107,7 @@ class Crawler:
 
     def get_week(url):
         weeks = {}
-        source_code = requests.get(url, headers=header_rotate)
+        source_code = requests.get(url, headers=header_rotate())
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text, 'html.parser')
         for div in soup.find_all('div', {'class': 'tour'}):
@@ -118,7 +118,7 @@ class Crawler:
 
     def get_week_club(url):
         clubs = {}
-        source_code = requests.get(url, headers=header_rotate)
+        source_code = requests.get(url, headers=header_rotate())
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text, 'html.parser')
         for item in soup.find_all('table', {'class': 'championship'}):
@@ -131,7 +131,7 @@ class Crawler:
 
     def get_table(url):
         clubs = []
-        source = requests.get(url, headers=header_rotate)
+        source = requests.get(url, headers=header_rotate())
         plain_text = source.text
         soup = BeautifulSoup(plain_text, 'html.parser')
         for item in soup.find_all('table', {'class': 'championship'}):
