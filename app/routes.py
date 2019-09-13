@@ -164,11 +164,13 @@ def scrap_years():
     for item in leagues:
         url = 'http://wildstat.com/p/{}'.format(item.league_id)
         years[item.league_id] = Crawler.get_years(url)
+        time.sleep(0.2)
     for item in years:
         for year in years[item]:
             y = Year(league_id=item, name=year, url=years[item][year])
             db.session.add(y)
             db.session.commit()
+            print(y)
     return jsonify(years)
 
 
@@ -179,7 +181,7 @@ def scrap_clubs():
     for item in year:
         url = 'http://wildstat.com/{}'.format(item.url)
         clubs[item.id] = Crawler.get_club(url)
-        time.sleep(5)
+        time.sleep(0.2)
     for item in clubs:
         for club in clubs[item]:
             c = Club(year_id=item, name=club, url=clubs[item][club])
