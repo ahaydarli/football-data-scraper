@@ -148,6 +148,7 @@ def scrap_leagues():
     for item in countries:
         url = 'http://wildstat.com/p/{}'.format(item.country_id)
         leagues[item.country_id] = Crawler.get_leagues(url)
+        time.sleep(0.3)
     for item in leagues:
         for league in leagues[item]:
             leag = Leagues(country_id=item, name=league, league_id=leagues[item][league])
