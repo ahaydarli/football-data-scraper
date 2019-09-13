@@ -193,7 +193,7 @@ def scrap_clubs():
 @app.route('/scrap_weeks')
 def scrap_weeks():
     weeks = {}
-    year = Year.query.filter_by(league_id=2301).all()
+    year = Year.query.all()
     for item in year:
         url = 'http://wildstat.com/{}'.format(item.url)
         if url:
