@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+   <div class="row">
+     <div class="col m-12 mx-auto">
+       <div class="card card-signin my-5">
+         <div class="card-body">
+           <h5 class="card-title text-center">Seasons</h5>
+           <div class="item-table">
+               <table id="dt-material-checkbox" class="table table-striped" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th></th>
+      <th class="th-sm">Season
+      </th>
+     <th>Weeks
+      </th>
+        <th>Season end table
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in year %}
+      <tr>
+      <td></td>
+      <td>{{ item.name }}</td>
+      <td><a href="{{ url_for('week', year_id=item.id) }}" class="btn btn-default btn-sm">Weeks</a></td>
+      <td><a href="{{ url_for('clubs', year_id=item.id) }}" class="btn btn-default btn-sm">Clubs</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Season
+      </th>
+      <th>Weeks
+      </th>
+        <th>Season end table
+      </th>
+    </tr>
+  </tfoot>
+</table>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+{% endblock %}

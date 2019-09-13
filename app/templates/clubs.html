@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container-fluid">
+   <div class="row">
+     <div class="col m-12 mx-auto">
+       <div class="card card-signin my-5">
+         <div class="card-body">
+           <h5 class="card-title text-center"></h5>
+           <div class="item-table">
+               <table class="table table-bordered table-sm table-striped text-center">
+            <thead>
+              <tr>
+                <th class="text-center"></th>
+                <th class="text-center">мот</th>
+                <th class="text-center">команда</th>
+                <th class="text-center">в</th>
+                <th class="text-center">н</th>
+                <th class="text-center">п </th>
+                <th class="text-center">мяч</th>
+                <th class="text-center">96\97</th>
+                <th class="text-center">97\98</th>
+                <th class="text-center">тур</th>
+                <th class="text-center">в</th>
+                <th class="text-center">н </th>
+                <th class="text-center">п</th>
+                <th class="text-center">мяч</th>
+                <th class="text-center">очки</th>
+                <th class="text-center">в</th>
+                <th class="text-center">н </th>
+                <th class="text-center">п</th>
+                <th class="th-md">мяч</th>
+                <th class="text-center">команда</th>
+                <th class="text-center">мот</th>
+                <th class="text-center">98\99</th>
+                <th class="text-center">yellow</th>
+                <th class="text-center">green</th>
+                <th class="text-center">purple</th>
+                <th class="text-center">blue</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for club in clubs %}
+                <tr>
+                <td class="" contenteditable="true">1</td>
+                <td class="" contenteditable="true">1</td>
+                <td class="" contenteditable="true">{{ club.name }}</td>
+                <td class="" contenteditable="true">{{ club.win }}</td>
+                <td class="" contenteditable="true">{{ club.draw }}</td>
+                <td class="" contenteditable="true">{{ club.lost }}</td>
+                <td class="" contenteditable="true">24</td>
+                <td class="" contenteditable="true">2</td>
+                <td class="" contenteditable="true">1</td>
+                <td class="" contenteditable="true">{{ week.name }}</td>
+                <td class="" contenteditable="true">10</td>
+                <td class="" contenteditable="true">4</td>
+                <td class="" contenteditable="true">5</td>
+                <td class="" contenteditable="true">18</td>
+                <td class="" contenteditable="true">34</td>
+                <td class="" contenteditable="true">4</td>
+                <td class="" contenteditable="true">2</td>
+                <td class="" contenteditable="true">3</td>
+                <td class="" contenteditable="true">4</td>
+                <td class="" contenteditable="true">Барселона</td>
+                <td class="" contenteditable="true">1</td>
+                <td class="" contenteditable="true">1</td>
+                <td class="yellow" contenteditable="true"></td>
+                <td class="" contenteditable="true">33</td>
+                <td class="" contenteditable="true"></td>
+                <td class="" contenteditable="true"></td>
+                <td class="" contenteditable="true"></td>
+
+                <td class="" contenteditable="true">
+                  <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up"
+                        aria-hidden="true"></i></a></span>
+                  <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down"
+                        aria-hidden="true"></i></a></span>
+                </td>
+                <td>
+                  <span class="table-remove"><button type="button"
+                      class="btn btn-danger btn-rounded btn-sm my-0 myBtn">Remove</button></span>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+{% endblock %}

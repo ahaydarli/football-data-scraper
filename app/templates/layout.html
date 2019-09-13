@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+      {% if session.get('theme') == 'dark' %}
+          <link href="{{ url_for('static', filename='md-bootstrap/css/bootstrap_dark.css')}}" rel="stylesheet">
+      {% else %}
+          <link href="{{ url_for('static', filename='md-bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+      {% endif %}
+    <!-- Material Design Bootstrap -->
+      <link href="{{ url_for('static', filename='md-bootstrap/css/mdb.min.css')}}" rel="stylesheet">
+      <link href="{{ url_for('static', filename='md-bootstrap/css/addons/datatables.min.css')}}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+      <link href="{{ url_for('static', filename='md-bootstrap/css/addons/datatables-select.min.css')}}" rel="stylesheet">
+
+    <title></title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Bet</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('index') }}">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+
+           <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('countries') }}">Countries</a>
+            </li>
+
+
+
+              {% if current_user.is_authenticated %}
+                  <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('profile')}}">Profile</a>
+            </li>
+                   <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout')}}">Logout</a>
+            </li>
+              {% endif %}
+             {% if current_user.is_authenticated == False %}
+              <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('login')}}">Login</a>
+              </li>
+               <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('register')}}">Registration</a>
+              </li>
+              {% endif %}
+                <li class="nav-item">
+              <div class="btn-group" role="group">
+  <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    Theme
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="{{ url_for('change_theme', theme='white') }}">White</a>
+    <a class="dropdown-item" href="{{ url_for('change_theme', theme='dark') }}">Dark</a>
+  </div>
+</div>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <!-- JQuery -->
+  <script type="text/javascript" src="{{ url_for('static', filename='md-bootstrap/js/jquery-3.4.1.min.js')}}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{{ url_for('static', filename='md-bootstrap/js/popper.min.js')}}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='md-bootstrap/js/bootstrap.min.js')}}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='md-bootstrap/js/mdb.min.js')}}"></script>
+
+  <script type="text/javascript" src="{{ url_for('static', filename='md-bootstrap/js/addons/datatables.min.js')}}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='md-bootstrap/js/addons/datatables-select.min.js')}}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/app.js')}}"></script>
+
+
+  </body>
+</html>

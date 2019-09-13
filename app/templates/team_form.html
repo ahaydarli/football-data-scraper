@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+   <div class="row">
+     <div class="col-sm-12 col-md-6 col-lg-6 mx-auto">
+       <div class="card card-signin my-5">
+         <div class="card-body">
+           <h5 class="card-title text-center">Get scores</h5>
+           <form action="" method="get">
+              <div class="form-group">
+                  <input type="text" name="home_team" class="form-control" id="" placeholder="Home team">
+              </div>
+              <div class="form-group">
+                  <input type="text" name="away_team" class="form-control" id="" placeholder="Away team">
+              </div>
+              <div class="form-group">
+               <button type="submit" class="btn btn-primary">Get data</button>
+              </div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+{% endblock %}

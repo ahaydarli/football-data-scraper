@@ -1,0 +1,7 @@
+{% extends '/admin/layout.html' %}
+{% block content %}
+
+{% for user in users %}
+{{ user.email }}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+   <div class="row">
+     <div class="col m-12 mx-auto">
+       <div class="card card-signin my-5">
+         <div class="card-body">
+           <h5 class="card-title text-center">Leagues</h5>
+           <div class="item-table">
+               <table id="dt-material-checkbox" class="table table-striped" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th></th>
+      <th class="th-sm">Country
+      </th>
+      <th class="th-sm">League name
+      </th>
+      <th class="th-sm">Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in leagues %}
+      <tr>
+      <td></td>
+      <td>{{ item.country.name }}</td>
+      <td>{{ item.name }}</td>
+      <td><a href="{{ url_for('years', league_id=item.league_id) }}" class="btn btn-default btn-sm">Seasons by year</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>
+      </th>
+      <th>Country
+      </th>
+      <th>League name
+      </th>
+      <th>Actions
+      </th>
+    </tr>
+  </tfoot>
+</table>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+{% endblock %}
