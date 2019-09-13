@@ -194,7 +194,7 @@ def scrap_clubs():
 def scrap_weeks():
     weeks = {}
     league = [2301, 2401, 2501, 8901, 2601]
-    year = Year.query.filter_by(league_id=2301)
+    year = Year.query.filter_by(league_id=2301).all()
     for item in year:
         url = 'http://wildstat.com/{}'.format(item.url)
         weeks[item.id] = Crawler.get_week(url)
