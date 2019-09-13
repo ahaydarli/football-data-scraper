@@ -177,11 +177,11 @@ def scrap_years():
 @app.route('/scrap_clubs')
 def scrap_clubs():
     clubs = {}
-    year = Year.query.filter_by(league_id=2301).limit(10)
+    year = Year.query.filter_by().limit()
     for item in year:
         url = 'http://wildstat.com/{}'.format(item.url)
         clubs[item.id] = Crawler.get_club(url)
-        time.sleep(0.2)
+        time.sleep(0.1)
     for item in clubs:
         for club in clubs[item]:
             c = Club(year_id=item, name=club, url=clubs[item][club])
@@ -193,7 +193,8 @@ def scrap_clubs():
 @app.route('/scrap_weeks')
 def scrap_weeks():
     weeks = {}
-    year = Year.query.filter_by(league_id=2301).limit(20)
+    league = [2301, 2401, 2501, 8901, 2601]
+    year = Year.query.filter_by(league_id=league).limit(20)
     for item in year:
         url = 'http://wildstat.com/{}'.format(item.url)
         weeks[item.id] = Crawler.get_week(url)
