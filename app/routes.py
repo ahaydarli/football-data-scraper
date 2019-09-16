@@ -210,7 +210,7 @@ def scrap_weeks():
 @app.route('/scrap_week_clubs')
 def scrap_week_clubs():
     clubs = {}
-    week = Week.query.filter_by(year_id=1312).limit(20)
+    week = Week.query.all()
     for item in week:
         url = 'http://wildstat.com/{}'.format(item.url)
         clubs[item.id] = Crawler.get_table(url)
